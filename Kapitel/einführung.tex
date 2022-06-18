@@ -1,0 +1,32 @@
+\section{Einführung}
+
+\begin{frame}
+    \frametitle{Einführung}
+    Der Nichtdeterminismus dient als ein Konzept, um die Berechnungskraft eines Algorithmus zu erhöhen.
+    Jedoch hat auch der Nichtdeterminismus seine Grenzen:
+    \begin{itemize}
+        \item Probleme aus NP fragen, ob eine Berechnung akzeptiert: \\
+         \enquote{Gibt es eine Belegung für die boolsche Formel $F$, sodass $F = 1$?}
+        \item Probleme aus coNP fragen, ob alle Berechnungen akzeptieren: \\
+          \enquote{Gilt für alle Belegungen für die boolsche Formel $F$, dass $F = 0$?}
+    \end{itemize}
+    $\rightarrow$ Was tun mit einem Problem, dass beide Bedingungen entscheiden muss?
+\end{frame}
+
+
+ \begin{frame}
+    \begin{block}{\textbf{EXACT-INDSET}:}
+        \begin{tabular}{@{}l@{}cl}
+        Gegeben &:& Ein Graph $G$, $k \in \mathbb{N}$\\ 
+        Frage &:& Hat das größte \textbf{INDSET} in $G$ genau die Größe $k$?
+        \end{tabular}
+    \end{block}
+
+    Das Problem scheint über kein \enquote{kurzes} Zertifikat zu verfügen. \\
+    \textbf{Algorithmus zur Entscheidung des Problems}:
+    \begin{itemize}
+        \item Ermittle ein \textbf{INDSET} $U$.
+        \item Prüfe für alle anderen Instanzen von \textbf{INDSET} $U'$, ob die Grö0e von $U' > k$.
+    \end{itemize}
+     Wie können wir Probleme solcher Art formal beschreiben?
+ \end{frame}

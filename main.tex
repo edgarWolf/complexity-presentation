@@ -1,6 +1,26 @@
 \documentclass{beamer}
 \usetheme{Boadilla}
 
+\usepackage{csquotes}
+\usepackage{ngerman}				% neue deutsche Rechtschreibung
+\usepackage[utf8]{inputenc} 		% Umlaute im Text
+\usepackage[T1]{fontenc}
+\usepackage{xspace}                 % Vermeidung von "ineinanderfallenden f's", wie z.B. bei Schifffahrt
+\usepackage{url}		            % korrekte Anzeige/Umbruch von URLs
+\usepackage{listings}               % z.B. nützlich zum Einbinden von Quellcode
+\usepackage{hyperref} 				% für Hyperlinks in PDF-Dokumenten 
+\usepackage{lmodern}
+\usepackage{enumerate}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+% Grafiken
+\usepackage{graphicx} 				% Grafiken einfügen (pdf,png - aber jpg vermeiden)
+\graphicspath{{./Bilder/}}          % Pfad zu den Bildern
+
+
 \title{Polynomialzeithierarchie}
 \subtitle{Seminar Komplexität}
 \author{Edgar Wolf}
@@ -18,41 +38,10 @@
     \tableofcontents
 \end{frame}
 
-\section{Alternierung}
-
-\begin{frame}
-    \frametitle{Alternierung}
-    Es gibt Probleme, die nicht ausschließlich nichtdeterminstisch gelöst werden können, jedoch immer noch schneller als mit exponentieller Laufzeit.
-    Die Beschränkung des Nichtdeterminismus auf die Frage nach der Existenz einer akzeptierenden Berechung limitiert die Lösungsmöglichkeiten für Probleme,
-    die Antworten über mehrere Stufen qunatifizieren. Die Alternierung löst dieses Problem.
-\end{frame}
-
-\begin{frame}
-    Alternierung kannn als Verallgmeinerung des Nichtdeterminismus aufgefasst werden, und ist somit ebenfalls ein Konzept, dass in der Praxis kaum umzusetzen ist.
-    Während beim Nichtdeterminismus nach einem akzeptierenden Berechnunspfad gesucht wird, können in der Alternierung die Berechnungen quantifiziert werden.
-\end{frame}
-
-\subsection{Begriffsklärung}
-\begin{frame}
-    \frametitle{Begriffsklärung}
-\end{frame}
-
-\subsection{Alternierende Turingmaschinen}
-\begin{frame}
-    \frametitle{Alternierende Turingmaschinen}
-\end{frame}
-
-
-\section{Polynomialzeithierarchie}
-\subsection{Defintion über alternierende Quantoren}
-\subsection{Defintion über alternierende Turingmaschinen}
-\subsection{Defintion über Turingmaschinen mit Orakel}
-
-\section{Eigenschaften der Polynomialzeithierarchie}
-\subsection{Vollständige Mengen}
-\subsection{Inklusionen}
-\subsection{Kollabieren}
-
-
+\input{Kapitel/einführung.tex}
+\input{Kapitel/alternierung.tex}
+\input{Kapitel/definition.tex}
+\input{Kapitel/kollabieren.tex}
+\input{Kapitel/fazit.tex}
 
 \end{document}
