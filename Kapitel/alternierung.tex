@@ -50,6 +50,7 @@
 
 \begin{frame}
     \frametitle{Alternierende Turingmaschinen}
+    \framesubtitle{Akzeptanz}
     \begin{block}{\textbf{Akzeptanz einer alternierenden Turingmaschine}}
         Sei $G_{M,x}$ der Konfigurationsgraph einer alternierenden Turingmaschine $M$ auf die Eingabe $x \in \{0, 1\}^*$.
         Dann ist die Akzeptanz von $M$ auf die Eingabe $x$ über folgenden Markierungsalgorithmus definiert:
@@ -63,5 +64,63 @@
         Die Maschine $M$ akzeptiert genau dann, wenn am keine Markierung mehr möglich ist und die Startkonfiguration $C_{start}$ mit \texttt{ACCEPT}
         markiert ist.
     \end{block}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Alternierende Turingmaschinen}
+    \framesubtitle{Alternierende Komplexitätsklassen}
+    Alternierende Turingmaschinen werden bezüglich ihrer Zeit- und Platzbeschränkung ebenso in Komplexitätsklassen unterteil, wie 
+    es für bereits für die ihre deterministischen bzw. nichtdeterminstischen Äquivalente bekannt ist.
+    \begin{block}{\textbf{Alternierende Komplexitätsklassen}}
+        \begin{itemize}
+            \item ATIME($f(n)$) = 
+            \item ASPACE($f(n)$) = 
+        \end{itemize}
+    \end{block}
+    Anhand dieser allgeminen Definitionen können analog zu DTIME und P, oder NTIME und NP konkrete Komplexitätsklassen definiert werden.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Alternierende Turingmaschinen}
+    \framesubtitle{Alternierende Komplexitätsklassen}
+    
+    \begin{block}{\textbf{Die Klasse AL}}
+        \begin{itemize}
+            \item ATIME($f(n)$) = 
+            \item ASPACE($f(n)$) = 
+        \end{itemize}
+    \end{block}
+
+    \begin{block}{\textbf{Die Klasse AP}}
+        \begin{itemize}
+            \item ATIME($f(n)$) = 
+            \item ASPACE($f(n)$) = 
+        \end{itemize}
+    \end{block}
+
+    \begin{block}{\textbf{Die Klasse APSPACE}}
+        \begin{itemize}
+            \item ATIME($f(n)$) = 
+            \item ASPACE($f(n)$) = 
+        \end{itemize}
+    \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Alternierende Turingmaschinen}
+    \framesubtitle{Alternierende Komplexitätsklassen}
+    
+    Gerade für die Klasse AP ergibt sich dabei ein interessanter Zusammenhang zur Klasse PSPACE:
+
+    \begin{block}{\textbf{Satz 1}}
+        AP $=$ PSPACE
+    \end{block}
+
+    \begin{proof}[Beweis]
+        asdasd
+    \end{proof}
 
 \end{frame}
