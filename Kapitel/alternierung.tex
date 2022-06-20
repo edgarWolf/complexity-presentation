@@ -9,6 +9,7 @@
 
 \begin{frame}
     \frametitle{Alternierung}
+    \framesubtitle{Begriffsklärung}
     Alternierung kannn als Verallgmeinerung des Nichtdeterminismus aufgefasst werden, und ist somit ebenfalls ein Konzept, dass in der Praxis kaum umzusetzen ist.
     Während beim Nichtdeterminismus nach einem akzeptierenden Berechnunspfad gesucht wird, können in der Alternierung die Berechnungen quantifiziert werden.
 \end{frame}
@@ -16,15 +17,51 @@
 \subsection{Begriffsklärung}
 \begin{frame}
     \frametitle{Alternierung}
+    \framesubtitle{Begriffsklärung}
     Die Zustände einer Berechnung einer alternierenden Berechnung sind (neben Startzustand und Endzuständen) entweder:
     \begin{itemize}
         \item existenziell: Die Berechnung akzeptiert, wenn mind. eine Berechnung akzeptiert
         \item universell: Die Berechnung akzeptiert, wenn alle Berechnungen akzeptieren.
     \end{itemize}
+    Bei einem nichtdeterminstischen Algorithmus wird lediglich in einem existenziellen Modus operiert,
+    sodass wir umgekehrt den Nichtdeterminismus als Spezialfall der Alternierung auffassen können.
 
 \end{frame}
 
 \subsection{Alternierende Turingmaschinen}
 \begin{frame}
     \frametitle{Alternierende Turingmaschinen}
+    Das Konzept der Alternierung lässt sich auf Turingmaschinen anwenden. 
+    Dadurch wird eine neue Klasse von Turingmaschinen definiert, die die Beschränkungen des
+    Nichtdeterminismus überwinden
+\end{frame}
+
+\begin{frame}
+    \frametitle{Alternierende Turingmaschinen}
+    \framesubtitle{Definition}
+    \begin{block}{\textbf{Alternierende Turingmaschine}}
+        Eine alternierende Turingmaschine ist eine Turingmaschine, die in einem Berechungsschritt in mehrere Zustände übergehen kann,
+        und deren Zustände existenziell und universell quantifiziert werden können.
+    \end{block}
+    Analog zur Betrachtung des Nichtdeterminismus als Spezialfall der Alternierung kann hier eine nichtdeterminstische Turingmaschine als Spezifall einer alternierenden
+    Turingmaschine betrachtet werden, die lediglich mit einem existenziellen Zustand ihre Berechnungen durchführt.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Alternierende Turingmaschinen}
+    \begin{block}{\textbf{Akzeptanz einer alternierenden Turingmaschine}}
+        Sei $G_{M,x}$ der Konfigurationsgraph einer alternierenden Turingmaschine $M$ auf die Eingabe $x \in \{0, 1\}^*$.
+        Dann ist die Akzeptanz von $M$ auf die Eingabe $x$ über folgenden Markierungsalgorithmus definiert:
+        \begin{itemize}
+            \item Markiere alle Konfiguration terminierend in einem akzeptierenden Zustand $C_{accept}$ mit \texttt{ACCEPT}.
+            \item Wenn eine Konfiguration $C$ mit $\exists$ markiert ist, und es eine Kante von $C$ zu $C'$ mit
+            Markierung \texttt{ACCEPT} gibt, markiere $C$ mit \texttt{ACCEPT}.
+            \item Wenn eine Konfiguration $C$ mit $\forall$ markiert ist, und alle Kanten von $C$ zu
+            Konfigurationen $C'$ mit Markierung \texttt{ACCEPT} führen, markiere $C$ mit \texttt{ACCEPT}.
+        \end{itemize}
+        Die Maschine $M$ akzeptiert genau dann, wenn am keine Markierung mehr möglich ist und die Startkonfiguration $C_{start}$ mit \texttt{ACCEPT}
+        markiert ist.
+    \end{block}
+
 \end{frame}
