@@ -1,7 +1,6 @@
 \documentclass{beamer}
 \usetheme{Boadilla}
 
-\usepackage{csquotes}
 \usepackage{ngerman}				% neue deutsche Rechtschreibung
 \usepackage[utf8]{inputenc} 		% Umlaute im Text
 \usepackage[T1]{fontenc}
@@ -11,21 +10,32 @@
 \usepackage{hyperref} 				% für Hyperlinks in PDF-Dokumenten 
 \usepackage{lmodern}
 \usepackage{enumerate}
+\usepackage[autostyle]{csquotes}
 \usepackage{amsthm}
 \usepackage{amsmath}
 \usepackage{amssymb}
 
+% Bib
+\usepackage[backend=biber,style=numeric, citestyle=ieee]{biblatex}
+\addbibresource{Literatur/quellen.bib} %Imports bibliography file
+
+\nocite{arora_computational_2009}
+\nocite{sipser_introduction_2012}
+\nocite{rothe_komplexitatstheorie_2008}
+\nocite{aaronson_scott_2016}
+\nocite{goos_relativized_1986}
+\nocite{rossman_complexity_2015}
+\nocite{schaefer_completeness_nodate}
 
 % Grafiken
 \usepackage{graphicx} 				% Grafiken einfügen (pdf,png - aber jpg vermeiden)
 \graphicspath{{./Bilder/}}          % Pfad zu den Bildern
 
-
 \title{Polynomialzeithierarchie}
 \subtitle{Seminar Komplexität}
 \author{Edgar Wolf}
 \institute{Hochschule Kempten}
-\date{29.06.2022}
+\date{13.07.2022}
 
 \AtBeginSection[]
 {
@@ -33,6 +43,12 @@
   \tableofcontents[currentsection]
   \end{frame}
 }
+
+\theoremstyle{plain}
+\newtheorem{satz}{Satz}
+
+\theoremstyle{plain}
+\newtheorem{conjecture}{Vermutung}
 
 \begin{document}
 

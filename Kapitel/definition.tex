@@ -1,46 +1,86 @@
 \section{Defintionen der PH}
 \begin{frame}
-    \frametitle{Polynomialzeihierarchie}
-    Hier Text zum formalen Konzept.
+    \frametitle{Polynomialzeithierarchie}
+    Die Polynomialzeithierarchie ist... 
+    \begin{itemize}
+        \item ein Formalismus zur Verallgemeinerung des Nichtdeterminismus
+        \item eine hierarchische Struktur über polynomiell zeitbeschränkte Komplexitätsklassen
+        \item ist in PSPACE enthalten
+        \item ein Modell zur Beschreibung von Problemen wie z.B. \texttt{EXACT-INDSET}
+    \end{itemize}
+    Die Definition kann dabei über verschiedene Ansätze erfolgen.
 \end{frame}
 
-\subsection{Defintion über alternierende Qunatoren}
+\subsection{Definition über alternierende Quantoren}
 \begin{frame}
-    \frametitle{Polynomialzeihierarchie}
+    \frametitle{Polynomialzeithierarchie}
     \framesubtitle{Definition über alternierende Quantoren}
-    Hier eine Definition über alternierende Quantoren.
+    \begin{block}{\textbf{Definition über alternierende Quantoren}}
+        Eine Sprache $L$ ist in $\Sigma^p_i$ mit $i \geq 1$ und einem Polynom $p$, wenn es eine polynomiell zeitbeschränkte Turingmaschine $M$ gibt, sodass für jede Eingabe $x \in \{0, 1\}^*$ gilt:
+
+        \small
+        \begin{align*}
+            x \in L \Leftrightarrow \exists u_1 \in \{0,1\}^{p(|x|)} \forall u_2 \in \{0,1\}^{p(|x|)} ... Q_i u_i \in \{0,1\}^{p(|x|)} M(x, u_1, ..., u_i) = 1
+        \end{align*}
+        wobei $Q_i = \exists$ wenn $i$ ungerade ist und $Q_i = \forall $ sonst \\
+       Die Definition für $\Pi^p_i$ erfolgt analog zu der $\Sigma_i^p$ mit entsprechender Quantifizierung:
+        \small
+        \begin{align*}
+            x \in L' \Leftrightarrow \forall u_1 \in \{0,1\}^{p(|x|)} \exists u_2 \in \{0,1\}^{p(|x|)} ... Q_i u_i \in \{0,1\}^{p(|x|)} M(x, u_1, ..., u_i) = 1
+        \end{align*}
+        Die PH ist definiert als die Vereinigung dieser Klassen:
+        \begin{align*}
+            \text{PH} = \bigcup_{i \geq 1} \Sigma^p_i = \bigcup_{i \geq 1} \Pi^p_i 
+        \end{align*}
+    \end{block}
 \end{frame}
 
-\subsection{Defintion über alternierende Turingmaschinen}
+\subsection{Definition über alternierende Turingmaschinen}
 \begin{frame}
-    \frametitle{Polynomialzeihierarchie}
+    \frametitle{Polynomialzeithierarchie}
     \framesubtitle{Definition über alternierende Turingmaschinen}
-    Hier eine Definition über alternierende Turingmaschinen.
+    \begin{block}{\textbf{$\Sigma_i$TIME($f(n))$}}
+        $\Sigma_i$TIME$f(n)$ ist die Menge aller Sprachen, die von einer $f(n)$-zeitbeschränkten alternierenden Turingmaschine mit existenziellem Startzustand mit höchstens $i-1$ Alternierungen entschieden werden kann.
+    \end{block}
+    \begin{block}{\textbf{$\Pi_i$TIME($f(n)$)}}
+        $\Pi_i$TIME$f(n)$ ist die Menge aller Sprachen, die von einer $f(n)$-zeitbeschränkten alternierenden Turingmaschine mit universellem Startzustand mit höchstens $i-1$ Alternierungen entschieden werden kann.
+    \end{block}
+    
+\end{frame}
+
+\begin{frame}
+    \frametitle{Polynomialzeithierarchie}
+    \framesubtitle{Definition über alternierende Turingmaschinen}
+    \begin{block}{\textbf{Definition über alternierende Turingmaschinen}}
+        \begin{align*}
+            \Sigma^p_i = \bigcup_{c \in \mathbb{N}} \Sigma_i TIME(n^c) \\
+            \Pi^p_i = \bigcup_{c \in \mathbb{N}} \Pi_i TIME(n^c) \\
+            \text{PH} = \bigcup_{i \geq 1} \Sigma^p_i = \bigcup_{i \geq 1} \Pi^p_i 
+        \end{align*}
+    \end{block}
 \end{frame}
 
 \subsection{Definition über Turingmaschinen mit Zugriff auf Orakel}
 \begin{frame}
-    \frametitle{Polynomialzeihierarchie}
+    \frametitle{Polynomialzeithierarchie}
     \framesubtitle{Orakel}
-    Hier vllt ein Recap zu Orakel
+    Eine weitere Definition bedient sich der Orakel:
+    \begin{block}{\textbf{Definition über Turingmaschinen mit Zugriff auf Orakel}}
+        Die Polynomialzeithierarchie ist für $i \geq 0$ definiert als:
+        \begin{align*}
+             & \Delta^p_0 = \Sigma^p_0 = \Pi^p_0 = \text{P} \\
+             & \Delta^p_{i+1} = \text{P}^{\Sigma^p_i} \\
+             &\Sigma^p_{i+1} = \text{NP}^{\Sigma^p_i} \\
+             & \Pi^p_{i+1} = \text{coNP}^{\Sigma^p_i}, \Pi^p_{i+1} = \text{co}\Sigma^p_{i+1} \\
+             & \text{PH} = \bigcup_{i \geq 0} \Sigma^p_i
+        \end{align*}
+    \end{block}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Polynomialzeihierarchie}
+    \frametitle{Polynomialzeithierarchie}
     \framesubtitle{Definition über Turingmaschinen mit Zugriff auf Orakel}
-    Hier vllt ein Recap zu Orakel
+    Die Definition über Orakel betrachtet eine Stufe $0$, sowie die Klasse P, die Zugriff auf Orakel hat, während
+    die anderen Definitionen ihre Definition in Stufe $1$ beginnen. Für die strukturelle Betrachtung der PH und bei der Frage des Kollapses spielen aber die Klassen der $\Delta^p_i$ eine nebensächliche Rolle.
 \end{frame}
 
-
-
-\begin{frame}
-    \frametitle{Polynomialzeihierarchie}
-    \framesubtitle{Äquivalenz der Definitionen}
-    Hier zeigen
-\end{frame}
-
-\begin{frame}
-    \frametitle{Polynomialzeihierarchie}
-    \framesubtitle{Die Welt zwischen P und PSPACE}
-    Hier das Bild einfügen
-\end{frame}
